@@ -1,2 +1,2 @@
 # reports
-A minecraft spigot pugin that makes reporting of players possible.
+Reports is an report management plugin designed for management of single spigot servers alike. Plugin is currently under hard development, so stay tuned.
