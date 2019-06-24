@@ -1,0 +1,8 @@
+name: reports
+version: @version@
+main: com.github.igorswieton.reportplugin.ReportPlugin
+api-version: 1.13
+prefix: Reports
+authors: [igorswieton]
+description: Plugin makes reporting of players possible.
+website: https://www.github.com/igorswieton
