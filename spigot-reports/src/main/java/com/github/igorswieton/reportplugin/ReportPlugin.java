@@ -1,5 +1,8 @@
 package com.github.igorswieton.reportplugin;
 
+import co.aikar.commands.BukkitCommandManager;
+import com.github.igorswieton.reportplugin.commands.ReportCommand;
+import com.google.inject.Inject;
 import com.google.inject.Injector;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -13,6 +16,10 @@ public final class ReportPlugin extends JavaPlugin {
   private BinderModule module;
   private Injector injector;
   private Configuration config;
+  private BukkitCommandManager manager;
+
+  @Inject
+  private ReportCommand command;
 
   /**
    * Called when plugin is enabled.
@@ -23,6 +30,7 @@ public final class ReportPlugin extends JavaPlugin {
     injector.injectMembers(this);
     config.options().copyDefaults(true);
     this.saveConfig();
+    manager.registerCommand(this.command);
   }
 
   /**
@@ -40,5 +48,6 @@ public final class ReportPlugin extends JavaPlugin {
     module = new BinderModule(this);
     injector = module.createInjector();
     config = this.getConfig();
+    manager = new BukkitCommandManager(this);
   }
 }
