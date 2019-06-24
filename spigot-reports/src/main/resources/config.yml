@@ -1,0 +1,6 @@
+MySQL:
+  Port: 3066
+  Host: 'localhost'
+  Username: 'root'
+  Password: '123'
+  Database: 'test'

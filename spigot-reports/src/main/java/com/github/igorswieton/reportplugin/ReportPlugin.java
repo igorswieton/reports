@@ -1,6 +1,7 @@
 package com.github.igorswieton.reportplugin;
 
 import com.google.inject.Injector;
+import org.bukkit.configuration.Configuration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
@@ -11,6 +12,7 @@ public final class ReportPlugin extends JavaPlugin {
 
   private BinderModule module;
   private Injector injector;
+  private Configuration config;
 
   /**
    * Called when plugin is enabled.
@@ -19,6 +21,8 @@ public final class ReportPlugin extends JavaPlugin {
   public void onEnable() {
     initialize();
     injector.injectMembers(this);
+    config.options().copyDefaults(true);
+    this.saveConfig();
   }
 
   /**
@@ -35,5 +39,6 @@ public final class ReportPlugin extends JavaPlugin {
   private void initialize() {
     module = new BinderModule(this);
     injector = module.createInjector();
+    config = this.getConfig();
   }
 }

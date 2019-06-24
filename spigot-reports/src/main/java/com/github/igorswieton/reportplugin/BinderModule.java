@@ -1,5 +1,10 @@
 package com.github.igorswieton.reportplugin;
 
+import com.github.igorswieton.reportplugin.annotation.Database;
+import com.github.igorswieton.reportplugin.annotation.Host;
+import com.github.igorswieton.reportplugin.annotation.Password;
+import com.github.igorswieton.reportplugin.annotation.Port;
+import com.github.igorswieton.reportplugin.annotation.Username;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -10,18 +15,34 @@ import com.google.inject.Injector;
  */
 public class BinderModule extends AbstractModule {
 
-  private ReportPlugin plugin;
+  private final ReportPlugin plugin;
+  private final String username;
+  private final Integer port;
+  private final String database;
+  private final String host;
+  private final String password;
 
-  public BinderModule(ReportPlugin plugin) {
+  BinderModule(ReportPlugin plugin) {
     this.plugin = plugin;
+    this.username = plugin.getConfig().getString("MySql.Username");
+    this.port = plugin.getConfig().getInt("MySql.Port");
+    this.database = plugin.getConfig().getString("MySql.Database");
+    this.host = plugin.getConfig().getString("MySql.Host");
+    this.password = plugin.getConfig().getString("MySql.password");
   }
 
-  public Injector createInjector() {
+  Injector createInjector() {
     return Guice.createInjector(this);
   }
 
   @Override
   protected void configure() {
     this.bind(ReportPlugin.class).toInstance(this.plugin);
+    this.bind(MySqlDataSourceConfiguration.class);
+    this.bind(String.class).annotatedWith(Username.class).toInstance(username);
+    this.bind(Integer.class).annotatedWith(Port.class).toInstance(port);
+    this.bind(String.class).annotatedWith(Database.class).toInstance(database);
+    this.bind(String.class).annotatedWith(Host.class).toInstance(host);
+    this.bind(String.class).annotatedWith(Password.class).toInstance(password);
   }
 }
