@@ -136,7 +136,7 @@ public final class ReportCommand extends BaseCommand {
         });
   }
 
-  private void executeReportControl(Player player, Player victim) {
+  private void startControl(Player player, Player victim) {
     GAMEMODE_CACHE.put(player, player.getGameMode());
     INVENTORY_CONTENTS_CACHE.put(player, player.getInventory().getContents());
     INVENTORY_ARMOR_CONTENTS_CACHE
