@@ -5,6 +5,8 @@ import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Default;
 import com.github.igorswieton.reportplugin.ReportPlugin;
+import com.github.igorswieton.reportplugin.reports.Report;
+import com.github.igorswieton.reportplugin.reports.ReportRepository;
 import com.google.inject.Inject;
 import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Bukkit;
@@ -20,17 +22,20 @@ public final class ReportCommand extends BaseCommand {
 
   private static final String CHAT_PREFIX = "§c§lReports §7» ";
 
-  private static final String CHAT_INVALID_SYNTAX = "§cWrong syntax! Check command help to get help.";
+  private static final String CHAT_INVALID_SYNTAX = "§cWrong syntax! "
+      + "Check command help to get help.";
 
   public static final String REPORT_INVENTORY_NAME = "§c§lReports";
 
   private static final int REPORT_INVENTORY_SIZE = 27;
 
   private final ReportPlugin plugin;
+  private final ReportRepository repository;
 
   @Inject
-  public ReportCommand(ReportPlugin plugin) {
+  public ReportCommand(ReportPlugin plugin, ReportRepository repository) {
     this.plugin = plugin;
+    this.repository = repository;
   }
 
   @Default
@@ -39,26 +44,36 @@ public final class ReportCommand extends BaseCommand {
     if (!(sender instanceof Player)) {
       return;
     }
+
     Player player = (Player) sender;
+
     if (args.length == 1) {
-      Player target = Bukkit.getPlayer(args[0]);
-      if (target == null) {
-        return;
+      Player victim = Bukkit.getPlayer(args[0]);
+
+      if (victim != null) {
+        executeReport(player, victim);
       }
-      new AnvilGUI(plugin, player, "report reason",
-          (consumer, reply) -> {
-            consumer.sendMessage(getReportMessage(reply, target));
 
-            Bukkit.getOnlinePlayers().stream()
-                .filter(current -> current.hasPermission("report.*")).forEach(
-                  current -> current.sendMessage(
-                    getNotificationMessage(reply, consumer, target)));
-
-            return null;
-          });
     } else {
       player.sendMessage(CHAT_PREFIX + CHAT_INVALID_SYNTAX);
     }
+  }
+
+  private void executeReport(Player player, Player victim) {
+    new AnvilGUI(plugin, player, "report reason",
+        (author, reason) -> {
+          author.sendMessage(getReportMessage(reason, victim));
+
+          Bukkit.getOnlinePlayers().stream().filter(current ->
+              current.hasPermission("report.*")).forEach(current ->
+              current.sendMessage(getNotificationMessage(reason, author, victim)));
+
+          Report report = new Report(reason, author.getName(), victim.getName());
+
+          repository.create(report);
+
+          return null;
+        });
   }
 
   private String getReportMessage(String reason, Player victim) {

@@ -34,6 +34,7 @@ public final class ReportPlugin extends JavaPlugin {
     this.saveConfig();
     injector.injectMembers(this);
     manager.registerCommand(this.command);
+    repository.createTable();
   }
 
   /**

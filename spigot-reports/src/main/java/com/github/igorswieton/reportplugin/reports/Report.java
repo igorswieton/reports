@@ -8,16 +8,16 @@ public final class Report {
 
   private final String reason;
   private final String author;
-  private final String accused;
+  private final String victim;
 
   public Report(String reason, String author, String accused) {
     this.reason = reason;
     this.author = author;
-    this.accused = accused;
+    this.victim = accused;
   }
 
-  public String getAccused() {
-    return accused;
+  public String getVictim() {
+    return victim;
   }
 
   public String getAuthor() {

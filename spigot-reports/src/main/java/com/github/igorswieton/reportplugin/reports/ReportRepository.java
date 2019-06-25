@@ -6,10 +6,12 @@ package com.github.igorswieton.reportplugin.reports;
  */
 public interface ReportRepository {
 
-  void create();
+  void createTable();
 
-  void remove();
+  void create(Report report);
 
-  boolean isReported();
+  void remove(Report report);
+
+  boolean isReported(Report report);
 
 }
