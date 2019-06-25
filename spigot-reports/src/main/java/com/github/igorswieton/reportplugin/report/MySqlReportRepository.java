@@ -2,12 +2,13 @@ package com.github.igorswieton.reportplugin.report;
 
 import com.github.igorswieton.reportplugin.MySqlDataSourceConfiguration;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.zaxxer.hikari.HikariDataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+@Singleton
 /**
  * @author Igor Swieton (https://www.github.com/igorswieton)
  * @since 24.06.2019
