@@ -40,9 +40,9 @@ public final class ItemBuilder {
     return this;
   }
 
-  public ItemBuilder addEnchantment(Enchantment ench, int level,
+  public ItemBuilder addEnchantment(Enchantment enchantment, int level,
       boolean ignoreLevelRestriction) {
-    itemMeta.addEnchant(ench, level, ignoreLevelRestriction);
+    itemMeta.addEnchant(enchantment, level, ignoreLevelRestriction);
     return this;
   }
 
