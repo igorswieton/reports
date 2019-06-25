@@ -1,6 +1,7 @@
 package com.github.igorswieton.reportplugin.reports;
 
 import com.github.igorswieton.reportplugin.MySqlDataSourceConfiguration;
+import com.google.inject.Inject;
 import com.zaxxer.hikari.HikariDataSource;
 
 /**
@@ -11,6 +12,7 @@ public class MySqlReportRepository implements ReportRepository {
 
   private final HikariDataSource dataSource;
 
+  @Inject
   public MySqlReportRepository(MySqlDataSourceConfiguration configuration) {
     this.dataSource = configuration.createConnection();
   }

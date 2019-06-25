@@ -1,6 +1,6 @@
 package com.github.igorswieton.reportplugin;
 
-import co.aikar.commands.BukkitCommandManager;
+import co.aikar.commands.PaperCommandManager;
 import com.github.igorswieton.reportplugin.commands.ReportCommand;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -16,7 +16,7 @@ public final class ReportPlugin extends JavaPlugin {
   private BinderModule module;
   private Injector injector;
   private Configuration config;
-  private BukkitCommandManager manager;
+  private PaperCommandManager manager;
 
   @Inject
   private ReportCommand command;
@@ -27,27 +27,19 @@ public final class ReportPlugin extends JavaPlugin {
   @Override
   public void onEnable() {
     initialize();
-    injector.injectMembers(this);
     config.options().copyDefaults(true);
     this.saveConfig();
+    injector.injectMembers(this);
     manager.registerCommand(this.command);
-  }
-
-  /**
-   * Called when plugin is disabled.
-   */
-  @Override
-  public void onDisable() {
-
   }
 
   /**
    * Serves to initialize variables from this class.
    */
   private void initialize() {
+    config = this.getConfig();
     module = new BinderModule(this);
     injector = module.createInjector();
-    config = this.getConfig();
-    manager = new BukkitCommandManager(this);
+    manager = new PaperCommandManager(this);
   }
 }
