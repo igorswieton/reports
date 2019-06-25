@@ -22,7 +22,6 @@ public class MySqlReportRepository implements ReportRepository {
     this.dataSource = configuration.createConnection();
   }
 
-  @Override
   public void createTable() {
     String query = "CREATE TABLE IF NOT EXISTS `report_table` "
         + "(`reason` VARCHAR(50), `author` VARCHAR(17), `victim` VARCHAR(17), "

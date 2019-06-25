@@ -9,8 +9,6 @@ import com.google.inject.ImplementedBy;
 @ImplementedBy(MySqlReportRepository.class)
 public interface ReportRepository {
 
-  void createTable();
-
   void create(Report report);
 
   void remove(Report report);
