@@ -13,7 +13,7 @@ import com.zaxxer.hikari.HikariDataSource;
  * @author Igor Swieton (https://www.github.com/igorswieton)
  * @since 24.06.2019
  */
-public class MySqlDataSourceConfiguration {
+public final class MySqlDataSourceConfiguration {
 
   private final String username;
   private final int port;

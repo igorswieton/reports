@@ -13,7 +13,7 @@ import com.google.inject.Injector;
  * @author Igor Swieton (https://www.github.com/igorswieton)
  * @since 24.06.2019
  */
-public class BinderModule extends AbstractModule {
+public final class BinderModule extends AbstractModule {
 
   private final ReportPlugin plugin;
   private final String username;

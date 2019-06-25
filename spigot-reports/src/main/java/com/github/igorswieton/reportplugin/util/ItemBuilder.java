@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
  * @author Igor Swieton (https://www.github.com/igorswieton)
  * @since 24.06.2019
  */
-public class ItemBuilder {
+public final class ItemBuilder {
 
   private final ItemStack item;
   private final ItemMeta itemMeta;

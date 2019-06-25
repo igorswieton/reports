@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @since 24.06.2019
  */
 @Singleton
-public class MySqlReportRepository implements ReportRepository {
+public final class MySqlReportRepository implements ReportRepository {
 
   private final HikariDataSource dataSource;
 
