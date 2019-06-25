@@ -5,8 +5,6 @@ import com.github.igorswieton.reportplugin.annotation.Host;
 import com.github.igorswieton.reportplugin.annotation.Password;
 import com.github.igorswieton.reportplugin.annotation.Port;
 import com.github.igorswieton.reportplugin.annotation.Username;
-import com.github.igorswieton.reportplugin.report.MySqlReportRepository;
-import com.github.igorswieton.reportplugin.report.ReportRepository;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -40,7 +38,6 @@ public class BinderModule extends AbstractModule {
   @Override
   protected void configure() {
     this.bind(ReportPlugin.class).toInstance(this.plugin);
-    this.bind(ReportRepository.class).to(MySqlReportRepository.class);
     this.bind(MySqlDataSourceConfiguration.class);
     this.bind(String.class).annotatedWith(Username.class).toInstance(username);
     this.bind(Integer.class).annotatedWith(Port.class).toInstance(port);
