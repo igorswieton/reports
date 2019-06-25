@@ -13,6 +13,8 @@ public interface ReportRepository {
 
   void remove(Report report);
 
-  boolean isReported(Report report);
+  Report getByName(String name);
+
+  boolean isReported(String name);
 
 }

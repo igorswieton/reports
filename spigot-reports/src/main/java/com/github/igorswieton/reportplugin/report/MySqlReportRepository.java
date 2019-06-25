@@ -8,11 +8,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-@Singleton
+
 /**
  * @author Igor Swieton (https://www.github.com/igorswieton)
  * @since 24.06.2019
  */
+@Singleton
 public class MySqlReportRepository implements ReportRepository {
 
   private final HikariDataSource dataSource;
@@ -64,12 +65,32 @@ public class MySqlReportRepository implements ReportRepository {
   }
 
   @Override
-  public boolean isReported(Report report) {
-    String query = "SELECT * FROM `report_table` WHERE `author` = ?";
+  public Report getByName(String name) {
+    String query = "SELECT * FROM `report_table` WHERE `victim` = ?";
     try (Connection connection = dataSource
         .getConnection(); PreparedStatement statement = connection
         .prepareStatement(query)) {
-      statement.setString(1, report.getAuthor());
+      statement.setString(1, name);
+      ResultSet resultSet = statement.executeQuery();
+      while (resultSet.next()) {
+        String reason = resultSet.getString("reason");
+        String author = resultSet.getString("author");
+        String victim = resultSet.getString("victim");
+        return new Report(reason, author, victim);
+      }
+    } catch (SQLException ex) {
+      ex.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override
+  public boolean isReported(String name) {
+    String query = "SELECT * FROM `report_table` WHERE `victim` = ?";
+    try (Connection connection = dataSource
+        .getConnection(); PreparedStatement statement = connection
+        .prepareStatement(query)) {
+      statement.setString(1, name);
       ResultSet resultSet = statement.executeQuery();
       return resultSet.next();
     } catch (SQLException ex) {

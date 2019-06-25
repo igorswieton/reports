@@ -10,10 +10,10 @@ public final class Report {
   private final String author;
   private final String victim;
 
-  public Report(String reason, String author, String accused) {
+  public Report(String reason, String author, String victim) {
     this.reason = reason;
     this.author = author;
-    this.victim = accused;
+    this.victim = victim;
   }
 
   public String getVictim() {
