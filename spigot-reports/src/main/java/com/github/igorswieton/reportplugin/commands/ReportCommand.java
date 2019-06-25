@@ -86,7 +86,7 @@ public final class ReportCommand extends BaseCommand {
           return;
         }
         if (!CONTROLLING_PLAYERS.contains(player)) {
-          executeReportControl(player, victim);
+          startControl(player, victim);
         }
       }
 
