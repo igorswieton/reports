@@ -9,7 +9,6 @@ import com.github.igorswieton.reportplugin.report.MySqlReportRepository;
 import com.github.igorswieton.reportplugin.report.ReportRepository;
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
-import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 /**
@@ -25,7 +24,6 @@ public class BinderModule extends AbstractModule {
   private final String host;
   private final String password;
 
-  @Inject
   BinderModule(ReportPlugin plugin) {
     this.plugin = plugin;
     this.username = plugin.getConfig().getString("MySQL.Username");
