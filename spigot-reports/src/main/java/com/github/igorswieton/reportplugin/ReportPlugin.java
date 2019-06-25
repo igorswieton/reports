@@ -2,7 +2,7 @@ package com.github.igorswieton.reportplugin;
 
 import co.aikar.commands.PaperCommandManager;
 import com.github.igorswieton.reportplugin.commands.ReportCommand;
-import com.github.igorswieton.reportplugin.reports.MySqlReportRepository;
+import com.github.igorswieton.reportplugin.report.MySqlReportRepository;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import org.bukkit.configuration.Configuration;

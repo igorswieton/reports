@@ -1,4 +1,4 @@
-name: reports
+name: report
 version: @version@
 main: com.github.igorswieton.reportplugin.ReportPlugin
 api-version: 1.8.8

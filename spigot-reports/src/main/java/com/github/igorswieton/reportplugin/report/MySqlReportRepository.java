@@ -1,4 +1,4 @@
-package com.github.igorswieton.reportplugin.reports;
+package com.github.igorswieton.reportplugin.report;
 
 import com.github.igorswieton.reportplugin.MySqlDataSourceConfiguration;
 import com.google.inject.Inject;

@@ -1,4 +1,4 @@
-package com.github.igorswieton.reportplugin.reports;
+package com.github.igorswieton.reportplugin.report;
 
 /**
  * @author Igor Swieton (https://www.github.com/igorswieton)
