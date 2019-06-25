@@ -31,4 +31,8 @@ public class MySqlReportRepository implements ReportRepository {
   public boolean isReported() {
     return false;
   }
+
+  public HikariDataSource getDataSource() {
+    return dataSource;
+  }
 }

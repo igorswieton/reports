@@ -2,6 +2,7 @@ package com.github.igorswieton.reportplugin;
 
 import co.aikar.commands.PaperCommandManager;
 import com.github.igorswieton.reportplugin.commands.ReportCommand;
+import com.github.igorswieton.reportplugin.reports.MySqlReportRepository;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import org.bukkit.configuration.Configuration;
@@ -19,6 +20,8 @@ public final class ReportPlugin extends JavaPlugin {
   private PaperCommandManager manager;
 
   @Inject
+  private MySqlReportRepository repository;
+  @Inject
   private ReportCommand command;
 
   /**
@@ -31,6 +34,14 @@ public final class ReportPlugin extends JavaPlugin {
     this.saveConfig();
     injector.injectMembers(this);
     manager.registerCommand(this.command);
+  }
+
+  /**
+   * Called when plugin is disabled.
+   */
+  @Override
+  public void onDisable() {
+    repository.getDataSource().close();
   }
 
   /**
