@@ -37,20 +37,20 @@ If you want to contribute, just open a [pull request](https://github.com/igorswi
 
 # Example previews
 
-## GUI preview
+## GUI
 ![GUI preview](https://i.ibb.co/gM5MHHP/gui-example.png)
 
-## Confirmation preview
+## Confirmation
 ![Apply preview](https://i.ibb.co/T8fBD85/apply-example.png)
 
-## Notification preview
+## Notification
 ![Notification preview](https://i.ibb.co/48QLLYF/notification-example.png)
 
-## Control start preview
+## Control start
 ![Start preview](https://i.ibb.co/grw83KP/start-example.png)
 
-## Control close preview
+## Control close
 ![Close preview](https://i.ibb.co/FwLZBDZ/close-example.png)
 
-## MySQL preview
+## MySQL
 ![MySQL preview](https://i.ibb.co/H26z6b2/mysql.png)
