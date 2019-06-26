@@ -37,9 +37,6 @@ If you want to contribute, just open a [pull request](https://github.com/igorswi
 
 # Example previews
 
-## MySQL preview
-![MySQL preview](https://i.ibb.co/H26z6b2/mysql.png)
-
 ## GUI preview
 ![GUI preview](https://i.ibb.co/gM5MHHP/gui-example.png)
 
@@ -54,3 +51,6 @@ If you want to contribute, just open a [pull request](https://github.com/igorswi
 
 ## Control close preview
 ![Close preview](https://i.ibb.co/FwLZBDZ/close-example.png)
+
+## MySQL preview
+![MySQL preview](https://i.ibb.co/H26z6b2/mysql.png)
