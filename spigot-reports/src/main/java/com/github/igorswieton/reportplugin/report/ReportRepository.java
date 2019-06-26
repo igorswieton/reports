@@ -1,6 +1,7 @@
 package com.github.igorswieton.reportplugin.report;
 
 import com.google.inject.ImplementedBy;
+import java.util.Collection;
 
 /**
  * @author Igor Swieton (https://www.github.com/igorswieton)
@@ -14,6 +15,8 @@ public interface ReportRepository {
   void remove(Report report);
 
   Report getByName(String name);
+
+  Collection<Report> getAll();
 
   boolean isReported(String name);
 

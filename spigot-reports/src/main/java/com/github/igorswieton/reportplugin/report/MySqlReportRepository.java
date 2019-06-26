@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * @author Igor Swieton (https://www.github.com/igorswieton)
@@ -29,7 +31,7 @@ public final class MySqlReportRepository implements ReportRepository {
         + "`creation_date` DATE)";
     try (Connection connection = dataSource
         .getConnection(); PreparedStatement statement = connection
-            .prepareStatement(query)) {
+        .prepareStatement(query)) {
       statement.executeUpdate();
     } catch (SQLException ex) {
       ex.printStackTrace();
@@ -42,7 +44,7 @@ public final class MySqlReportRepository implements ReportRepository {
         + "`creation_date`) VALUES (?, ?, ?, NOW())";
     try (Connection connection = dataSource
         .getConnection(); PreparedStatement statement = connection
-            .prepareStatement(query)) {
+        .prepareStatement(query)) {
       statement.setString(1, report.getReason());
       statement.setString(2, report.getAuthor());
       statement.setString(3, report.getVictim());
@@ -57,7 +59,7 @@ public final class MySqlReportRepository implements ReportRepository {
     String query = "DELETE FROM `report_table` WHERE `author` = ?";
     try (Connection connection = dataSource
         .getConnection(); PreparedStatement statement = connection
-            .prepareStatement(query)) {
+        .prepareStatement(query)) {
       statement.setString(1, report.getAuthor());
       statement.executeUpdate();
     } catch (SQLException ex) {
@@ -70,7 +72,7 @@ public final class MySqlReportRepository implements ReportRepository {
     String query = "SELECT * FROM `report_table` WHERE `victim` = ?";
     try (Connection connection = dataSource
         .getConnection(); PreparedStatement statement = connection
-            .prepareStatement(query)) {
+        .prepareStatement(query)) {
       statement.setString(1, name);
       ResultSet resultSet = statement.executeQuery();
       while (resultSet.next()) {
@@ -86,11 +88,16 @@ public final class MySqlReportRepository implements ReportRepository {
   }
 
   @Override
+  public Collection<Report> getAll() {
+    return null;
+  }
+
+  @Override
   public boolean isReported(String name) {
     String query = "SELECT * FROM `report_table` WHERE `victim` = ?";
     try (Connection connection = dataSource
         .getConnection(); PreparedStatement statement = connection
-            .prepareStatement(query)) {
+        .prepareStatement(query)) {
       statement.setString(1, name);
       ResultSet resultSet = statement.executeQuery();
       return resultSet.next();
