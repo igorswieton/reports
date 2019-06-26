@@ -11,7 +11,7 @@ If you want to report a player, you type the respective command `(check: Command
 - Adapted command tab-completion in the chat
 
 # TODO
-- Join notifications
+- Improve join notification `number of open reports`
 - More configuration options
 - Pulishing `(Teleport sounds, Bug fixing, Chat clear at control start, ...)`
 - List command
