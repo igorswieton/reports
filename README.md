@@ -57,3 +57,6 @@ If you want to contribute, just open a [pull request](https://github.com/igorswi
 
 ## MySQL
 ![MySQL preview](https://i.ibb.co/H26z6b2/mysql.png)
+
+# Contact
+If you want to contact me, you can always reach me over Discord (**Igor'#8266**).
