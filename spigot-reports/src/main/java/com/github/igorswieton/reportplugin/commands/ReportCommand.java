@@ -169,7 +169,7 @@ public final class ReportCommand extends BaseCommand {
     player.teleport(victim);
     CONTROLLING_PLAYERS.add(player);
     clearChat(player);
-    player.sendMessage(getControlMessage(player, victim));
+    player.sendMessage(getControlMessage(victim));
     Report report = repository.getByName(victim.getName());
     repository.remove(report);
   }
@@ -217,7 +217,7 @@ public final class ReportCommand extends BaseCommand {
         + "§7§m-------------------------------------";
   }
 
-  private String getControlMessage(Player player, Player victim) {
+  private String getControlMessage(Player victim) {
     return "§7§m---------------§c§lReports§7§m---------------\n"
         + "§7 \n"
         + "§7» You are controlling now " + victim.getName() + "\n"
