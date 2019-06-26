@@ -31,10 +31,34 @@ Everyone on the server is able to report an other player.
 - /report close `allows to close a controlling process`
   
 # Installation
-Currently there is no way to download the jar file.
-In the future, however, there will be a way to download the jar file from [SpigotMC](https://www.spigotmc.org/).
+To download the jar I recommend you to download it from [here](https://www.spigotmc.org/).
+
 Of course, you have the option to download the repository and build it by yourself via [Gradle](https://gradle.org/).
 
+## Setup guide
+
+```xml
+1. Download the jar file (the plugin).
+
+2. Move the file to your plugins folder.
+
+3. start the server.
+3.1. Now an error message should appear in the console. 
+
+4. Stop your server.
+
+5. Open the config.yml file.
+5.1. This is the way you can find it:
+5.2. Open the "plugins" folder..
+5.3. open the "reports" folder.
+5.4. open the config.yml file.
+
+6. Enter your MySQL data.
+
+7. Close the config.yml file.
+
+8. Start your server again.
+```
 # Contribution
 If you want to contribute, just open a [pull request](https://github.com/igorswieton/reports/pulls).
 
