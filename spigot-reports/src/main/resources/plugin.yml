@@ -1,4 +1,4 @@
-name: report
+name: reports
 version: @version@
 main: com.github.igorswieton.reportplugin.ReportPlugin
 prefix: Reports
