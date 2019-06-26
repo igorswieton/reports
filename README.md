@@ -11,6 +11,7 @@ Reports is a report management plugin designed for management of single spigot s
 - Join notifications
 - More configuration options
 - Pulishing `(Teleport sounds, Bug fixing, Chat clear at control start, ...)`
+- List command
 - Code cleanup (!)
 
 ## Permissions
@@ -18,6 +19,11 @@ There is only one permission: `report.*`
 If a player has this permission, he is able to see, control and close a report.
 Everyone on the server is able to report an other player. 
 
+## Commands
+- /report <victim> `allows to report a player`
+- /report control `allows to control a reported player`
+- /report close `allows to close a controlling process`
+  
 ## Installation
 Currently there is no way to download the jar file.
 In the future, however, there will be a way to download the jar file from [SpigotMC](https://www.spigotmc.org/).
