@@ -26,7 +26,7 @@ If a player has this permission, he is able to see, control and close a report.
 Everyone on the server is able to report an other player. 
 
 ## Commands
-- /report <victim> `allows to report a player`
+- /report (victim) `allows to report a player`
 - /report control `allows to control a reported player`
 - /report close `allows to close a controlling process`
   
