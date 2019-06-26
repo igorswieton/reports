@@ -31,7 +31,7 @@ Everyone on the server is able to report an other player.
 - /report close `allows to close a controlling process`
   
 # Installation
-To download the jar I recommend you to download it from [here](https://www.spigotmc.org/).
+To download the jar I recommend you to download it from [here](https://www.spigotmc.org/resources/reports.68754/).
 
 Of course, you have the option to download the repository and build it by yourself via [Gradle](https://gradle.org/).
 
