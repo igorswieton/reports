@@ -8,7 +8,6 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.Configuration;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
