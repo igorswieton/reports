@@ -66,7 +66,7 @@ public final class ReportCommand extends BaseCommand {
         player.sendMessage(CHAT_PREFIX + CHAT_NOT_AVAILABLE);
         return;
       }
-      if (!repository.isReported(player.getName())) {
+      if (!repository.isReported(victim.getName())) {
         executeReport(player, victim);
       } else {
         player.sendMessage(CHAT_PREFIX + "This player was already reported.");
