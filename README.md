@@ -4,8 +4,23 @@ Reports is a report management plugin designed for management of single spigot s
 ## How it works
 If you want to report a player, you type the respective command `(check: Commands)` in the chat and finally an anvil gui opens, where you have to type in the respective reason. After that your report will be saved in a MySQL database and all team members `(check: Permissions)` will be notified about your report. If a team member now decides to control a report and then closes it, the report will be deleted from the database.
 
-## MySQL Example
-![Example](https://i.ibb.co/H26z6b2/mysql.png)
+## MySQL preview
+![MySQL preview](https://i.ibb.co/H26z6b2/mysql.png)
+
+## GUI preview
+![GUI preview](https://i.ibb.co/gM5MHHP/gui-example.png)
+
+## Apply preview
+![Apply preview](https://i.ibb.co/T8fBD85/apply-example.png)
+
+## Notification preview
+![Notification preview](https://i.ibb.co/48QLLYF/notification-example.png)
+
+## Control start preview
+![Start preview](https://i.ibb.co/grw83KP/start-example.png)
+
+## Control close preview
+![Close preview](https://i.ibb.co/FwLZBDZ/close-example.png)
 
 ## Current supported features
 - MySQL support
