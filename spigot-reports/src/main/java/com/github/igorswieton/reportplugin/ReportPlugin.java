@@ -19,7 +19,6 @@ public final class ReportPlugin extends JavaPlugin {
 
   private BinderModule module;
   private Injector injector;
-  private Configuration config;
   private PaperCommandManager manager;
   private PluginManager pluginManager;
 
@@ -35,9 +34,9 @@ public final class ReportPlugin extends JavaPlugin {
    */
   @Override
   public void onEnable() {
-    initialize();
-    config.options().copyDefaults(true);
+    this.getConfig().options().copyDefaults(true);
     this.saveConfig();
+    initialize();
     injector.injectMembers(this);
     manager.registerCommand(this.command);
     repository.createTable();
@@ -56,7 +55,6 @@ public final class ReportPlugin extends JavaPlugin {
    * Serves to initialize variables from this class.
    */
   private void initialize() {
-    config = this.getConfig();
     module = new BinderModule(this);
     injector = module.createInjector();
     manager = new PaperCommandManager(this);
