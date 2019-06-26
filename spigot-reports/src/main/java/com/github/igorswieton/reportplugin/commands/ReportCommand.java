@@ -119,15 +119,6 @@ public final class ReportCommand extends BaseCommand {
     }
   }
 
-  @Subcommand("list")
-  @CommandCompletion("list")
-  @CommandPermission("report.*")
-  @Description("Used to list all reports.")
-  public void executeListCommand(Player player) {
-    Collection<Report> reports = repository.getAll();
-    System.out.println("CALLED");
-  }
-
   private void executeReport(Player player, Player victim) {
     new AnvilGUI(plugin, player, "report reason",
         (author, reason) -> {
