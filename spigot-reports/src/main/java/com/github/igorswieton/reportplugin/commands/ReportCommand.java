@@ -58,15 +58,18 @@ public final class ReportCommand extends BaseCommand {
   @CommandCompletion("@players")
   @Description("Used to report any player and control them.")
   public void execute(Player player, String[] args) {
-
     if (args.length == 1) {
 
       Player victim = Bukkit.getPlayer(args[0]);
 
-      if (victim != null) {
+      if (victim == null) {
+        player.sendMessage(CHAT_PREFIX + CHAT_NOT_AVAILABLE);
+        return;
+      }
+      if (!repository.isReported(player.getName())) {
         executeReport(player, victim);
       } else {
-        player.sendMessage(CHAT_PREFIX + CHAT_NOT_AVAILABLE);
+        player.sendMessage(CHAT_PREFIX + "This player was already reported.");
       }
 
     } else if (args.length == 2) {
@@ -113,6 +116,15 @@ public final class ReportCommand extends BaseCommand {
       player.sendMessage(
           CHAT_PREFIX + "You do not control anyone at the moment.");
     }
+  }
+
+  @Subcommand("list")
+  @CommandCompletion("list")
+  @CommandPermission("report.*")
+  @Description("Used to list all reports.")
+  public void executeListCommand(Player player) {
+    Collection<Report> reports = repository.getAll();
+    System.out.println("CALLED");
   }
 
   private void executeReport(Player player, Player victim) {
