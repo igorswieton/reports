@@ -15,8 +15,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
  */
 public class PlayerJoinListener implements Listener {
 
-  private static final String REMINDER_PREFIX = "§6§lReminder §7» ";
-
   private final ReportPlugin plugin;
   private final ReportRepository reportRepository;
 
