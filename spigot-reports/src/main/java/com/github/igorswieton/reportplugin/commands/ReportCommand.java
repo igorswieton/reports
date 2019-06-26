@@ -17,6 +17,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.stream.IntStream;
 import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -160,6 +161,7 @@ public final class ReportCommand extends BaseCommand {
     player.getInventory().setArmorContents(null);
     player.teleport(victim);
     CONTROLLING_PLAYERS.add(player);
+    clearChat(player);
     player.sendMessage(getControlMessage(player, victim));
     Report report = repository.getByName(victim.getName());
     repository.remove(report);
@@ -172,7 +174,12 @@ public final class ReportCommand extends BaseCommand {
         .setArmorContents(INVENTORY_ARMOR_CONTENTS_CACHE.get(player));
     player.teleport(LOCATION_CACHE.get(player));
     CONTROLLING_PLAYERS.remove(player);
+    clearChat(player);
     player.sendMessage(getCloseMessage());
+  }
+
+  private void clearChat(Player player) {
+    IntStream.range(0, 200).mapToObj(i -> " ").forEach(player::sendMessage);
   }
 
   private String getReportMessage(String reason, Player victim) {
