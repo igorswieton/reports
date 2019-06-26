@@ -14,7 +14,7 @@ note: current gamemode, inventory, and location will be saved before a control s
 
 # TODO
 - Improve join notification `number of open reports`
-- More configuration options
+- More configuration options (?)
 - Pulishing `(Teleport sounds, Bug fixing, ...)`
 - List command
 - Code cleanup (!)
