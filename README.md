@@ -14,8 +14,8 @@ note: current gamemode, inventory, and location will be saved before a control s
 
 # TODO
 - Improve join notification `number of open reports`
-- More configuration options
-- Pulishing `(Teleport sounds, Bug fixing, Chat clear at control start, ...)`
+- More configuration options (?)
+- Pulishing `(Teleport sounds, Bug fixing, ...)`
 - List command
 - Code cleanup (!)
 
@@ -57,3 +57,6 @@ If you want to contribute, just open a [pull request](https://github.com/igorswi
 
 ## MySQL
 ![MySQL preview](https://i.ibb.co/H26z6b2/mysql.png)
+
+# Contact
+If you want to contact me, you can always reach me over Discord (**Igor'#8266**).
