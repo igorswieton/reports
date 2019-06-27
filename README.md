@@ -4,11 +4,12 @@ Reports is a report management plugin designed for management of single spigot s
 # How it works
 If you want to report a player, you type the respective command `(check: Commands)` in the chat and finally an anvil gui opens, where you have to type in the respective reason. After that your report will be saved in a MySQL database and all team members `(check: Permissions)` will be notified about your report. If a team member now decides to control a report and then closes it, the report will be deleted from the database.
 
-note: current gamemode, inventory, and location will be saved before a control start. That's why you do not have to worry about your game data going down
+note: current gamemode, inventory, and location will be saved before a control start. That's why you do not have to worry about your game data going down.
 
 # Current supported features
 - MySQL support
-- Notifications of all players with a certain permission `(check Permissions)`
+- Anvil GUI
+- Notifications of all team members `(check Permissions)`
 - Bug-free controlling of a reported player
 - Adapted command tab-completion in the chat
 
